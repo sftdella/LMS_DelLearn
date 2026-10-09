@@ -298,7 +298,7 @@ _(Diperbarui setelah Tahap 8, 25 September 2026. Butir yang sudah beres ditandai
 
 1. ✔ ~~Belum ada verifikasi langsung dari pemilik untuk Tahap 6, 7, 8~~ — **beres:** diverifikasi manual oleh pemilik pada 25 September 2026. ~~Yang masih menunggu konfirmasi: **Tahap 2** (mock data)~~ — **beres:** Tahap 2 diverifikasi manual oleh pemilik pada 25 September 2026. ~~Yang masih menunggu: **konfirmasi visual Milestone 2** (5 halaman vs PDF).~~ — **beres:** dikonfirmasi pemilik 7 Oktober 2026.
 2. ✔ ~~Tampilan tablet dan mobile belum diperiksa untuk semua halaman~~ — **beres (diuji Claude, Tahap 6 & 8):** 14 halaman × 820/500/375px tanpa overflow horizontal.
-3. **Project belum menjadi repository Git** (`git rev-parse` → "not a git repository"). Panduan: tugas dikumpulkan lewat link GitHub/GitLab.
+3. ✔ ~~**Project belum menjadi repository Git**~~ — **beres (9 Oktober 2026):** repository https://github.com/sftdella/LMS_DelLearn.
 4. ✔ ~~**Tombol Cetak & Kembali di Rekap Nilai** (bagian dari rencana halaman Laporan pada Tahap 1) belum dibuat.~~ — **beres:** dibuat di Tahap 10 Fase 10 (Cetak `window.print()`, Kembali ke Detail Kelas/Dashboard).
 
 ## SEBAIKNYA DIPERBAIKI
@@ -319,7 +319,7 @@ _(Daftar awal dari audit Milestone 2; statusnya setelah Milestone 3.)_
 4. ✔ Grafik dengan Chart.js di Dashboard — Tahap 7.
 5. ✔ Manipulasi mock data di tabel (tambah/edit/hapus) — Tahap 3–5. ~~Pencarian & filter tabel tidak dibuat~~ — kini tersedia di semua tabel (Tahap 10).
 6. ✔ Halaman Laporan/Detail (Rekap Nilai, Detail Kelas) dinamis; tombol Cetak dibuat di Tahap 10 Fase 10.
-7. Belum: Upload ke GitHub/Vercel agar siap demonstrasi.
+7. ✔ Upload ke GitHub — https://github.com/sftdella/LMS_DelLearn (9 Oktober 2026). Belum: hosting demo (mis. GitHub Pages/Vercel).
 
 ---
 
@@ -330,7 +330,7 @@ _(Daftar awal dari audit Milestone 2; statusnya setelah Milestone 3.)_
    1b. ✔ ~~**Pemilik menguji manual fitur Login & Role-Based UI** — jawab **LOGIN SUDAH** atau **LOGIN BELUM**.~~ — **beres:** "LOGIN SUDAH, semua pengujian manual berhasil." (7 Oktober 2026).
 2. ✔ ~~**Pemilik memeriksa tampilan Milestone 2** (Dashboard, Data Kelas, Data Peserta, Data Pengajar, Rekap Nilai vs PDF) — jawab **SUDAH** atau **BELUM**.~~ — **beres:** "SUDAH — Milestone 2 terpenuhi." (7 Oktober 2026).
 3. ✔ ~~**Keputusan pemilik:** tombol Cetak & Kembali di Rekap Nilai (rencana Tahap 1) — dibuat atau tidak.~~ — **beres:** dibuat di Tahap 10 Fase 10 (dikonfirmasi pemilik 7 Oktober 2026).
-4. **Inisialisasi Git dan unggah project ke GitHub** (perlu persetujuan pemilik).
+4. ✔ ~~**Inisialisasi Git dan unggah project ke GitHub**~~ — **beres (9 Oktober 2026):** disetujui pemilik; project diunggah ke https://github.com/sftdella/LMS_DelLearn (branch `main`). Folder `.claude/` (pengaturan lokal) tidak ikut diunggah.
 4a. ✔ **beres: P1–P4 dikonfirmasi pemilik ("sudah", 8 Oktober 2026)** — ~~Pemilik menguji manual P4 (Portal Pengajar)~~ — langkah uji di Riwayat 8 Oktober 2026; jawab **P4 SUDAH** atau laporkan temuan. P2 & P3 juga masih menunggu konfirmasi tertulis. Catatan: sejak P5, langkah P4 no. (3) dan (4) berubah — Aktivitas dibuat lewat form bertipe di halaman Aktivitas (bukan Kelola Soal) dan Kuis tidak lagi punya "Susun Sendiri".
 4h. ✔ ~~**Pemilik menguji manual P6 (Detail Pengerjaan & Pemantauan Peserta)**~~ — **beres:** "SUDAH" (9 Oktober 2026).
 4g. ✔ ~~**Pemilik menguji manual P5f (konten Pertemuan 5 lengkap)**~~ — **beres:** "SUDAH" (9 Oktober 2026).
