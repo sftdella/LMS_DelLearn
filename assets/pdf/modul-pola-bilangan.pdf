@@ -1,0 +1,72 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 888 >>
+stream
+BT
+/F2 18 Tf
+56 780 Td
+(Modul Pertemuan 2: Pola Bilangan) Tj
+/F1 11 Tf
+0 -22 Td
+(DelLearn - Matematika SMP Kelas 8) Tj
+0 -30 Td
+(Tujuan pembelajaran:) Tj
+0 -18 Td
+(- Mengenali pola bilangan ganjil, genap, persegi, dan segitiga.) Tj
+0 -18 Td
+(- Menentukan suku berikutnya dan rumus suku ke-n.) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(1. Pola bilangan ganjil: 1, 3, 5, 7, ...  Un = 2n - 1) Tj
+0 -18 Td
+(2. Pola bilangan genap: 2, 4, 6, 8, ...   Un = 2n) Tj
+0 -18 Td
+(3. Pola bilangan persegi: 1, 4, 9, 16, ... Un = n x n) Tj
+0 -18 Td
+(4. Pola bilangan segitiga: 1, 3, 6, 10, ... Un = n\(n + 1\) : 2) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Contoh: barisan 3, 7, 11, 15, ... memiliki beda 4.) Tj
+0 -18 Td
+(Suku ke-10 = 3 + \(10 - 1\) x 4 = 39.) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Latihan mandiri: tentukan suku ke-8 dari barisan 5, 10, 15, 20, ...) Tj
+0 -18 Td
+0 -12 Td
+(Dokumen contoh untuk prototype DelLearn LMS.) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f
+0000000009 00000 n
+0000000058 00000 n
+0000000115 00000 n
+0000000251 00000 n
+0000000321 00000 n
+0000000396 00000 n
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1335
+%%EOF

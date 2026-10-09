@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detail kelas bimbingan belajar: informasi, pembelajaran, peserta, dan nilai">
+    <title>Detail Kelas — DelLearn Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="detail-kelas">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu utama">
+                <ul class="nav-list">
+                    <li>
+                        <a href="../index.html" class="nav-link">
+                            <span class="icon i-dashboard" aria-hidden="true"></span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-kelas.html" class="nav-link active" aria-current="page">
+                            <span class="icon i-book" aria-hidden="true"></span>
+                            Kelas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-peserta.html" class="nav-link">
+                            <span class="icon i-users" aria-hidden="true"></span>
+                            Peserta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-pengajar.html" class="nav-link">
+                            <span class="icon i-user-check" aria-hidden="true"></span>
+                            Pengajar
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Pembelajaran</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="pertemuan.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar" aria-hidden="true"></span>
+                            Pertemuan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=pretest" class="nav-link nav-sub">
+                            <span class="icon i-clipboard" aria-hidden="true"></span>
+                            Pretest
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modul.html" class="nav-link nav-sub">
+                            <span class="icon i-file" aria-hidden="true"></span>
+                            Modul
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=aktivitas" class="nav-link nav-sub">
+                            <span class="icon i-star" aria-hidden="true"></span>
+                            Aktivitas Interaktif
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=latihan" class="nav-link nav-sub">
+                            <span class="icon i-list" aria-hidden="true"></span>
+                            Latihan Soal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tugas.html" class="nav-link nav-sub">
+                            <span class="icon i-check-square" aria-hidden="true"></span>
+                            Tugas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kuis.html" class="nav-link nav-sub">
+                            <span class="icon i-help" aria-hidden="true"></span>
+                            Kuis
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Ruang Try Out</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="to-pts.html" class="nav-link nav-sub">
+                            <span class="icon i-trophy" aria-hidden="true"></span>
+                            TO PTS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="to-pas.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar-check" aria-hidden="true"></span>
+                            TO PAS
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Penilaian</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="rekap-nilai.html" class="nav-link nav-sub">
+                            <span class="icon i-bar-chart" aria-hidden="true"></span>
+                            Rekap Nilai
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="../index.html">Admin Portal</a>
+                </nav>
+
+                <div class="header-right">
+                    <!-- Status notifikasi (informasi saja, bukan tombol: belum ada fitur notifikasi) -->
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">Administrator</p>
+                            <p class="profile-role">Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- Seluruh isi dirender initDetailKelasPage() di assets/js/script.js berdasarkan detail-kelas.html?id=N -->
+            <main class="content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../index.html">Dashboard</a></li>
+                        <li><a href="data-kelas.html">Kelas</a></li>
+                        <li aria-current="page" id="detail-breadcrumb">Detail Kelas</li>
+                    </ol>
+                </nav>
+
+                <!-- Keadaan: kelas tidak ditemukan -->
+                <section class="card" id="detail-notfound" hidden>
+                    <div class="card-body">
+                        <div class="alert alert-error" role="alert">
+                            <span class="icon i-info" aria-hidden="true"></span>
+                            <span><strong>Kelas tidak ditemukan.</strong> <span id="detail-notfound-text"></span></span>
+                        </div>
+                        <a href="data-kelas.html" class="btn btn-primary"><span class="icon i-chevron-left" aria-hidden="true"></span>Kembali ke Data Kelas</a>
+                    </div>
+                </section>
+
+                <div id="detail-konten">
+                    <section class="detail-header" aria-labelledby="judul-kelas">
+                        <div>
+                            <h1 id="judul-kelas">–</h1>
+                            <p class="detail-meta" id="detail-meta"></p>
+                        </div>
+                        <div class="actions actions-wrap">
+                            <a href="data-kelas.html" class="btn btn-secondary"><span class="icon i-chevron-left" aria-hidden="true"></span>Kembali</a>
+                            <a href="form-kelas.html" class="btn btn-primary" id="btn-edit-kelas"><span class="icon i-pencil" aria-hidden="true"></span>Edit Kelas</a>
+                        </div>
+                    </section>
+
+                    <nav class="tabs" role="tablist" aria-label="Bagian detail kelas">
+                        <button type="button" class="tab active" role="tab" id="tab-informasi" data-tab="informasi" aria-controls="panel-informasi" aria-selected="true">Informasi</button>
+                        <button type="button" class="tab" role="tab" id="tab-pembelajaran" data-tab="pembelajaran" aria-controls="panel-pembelajaran" aria-selected="false" tabindex="-1">Pembelajaran</button>
+                        <button type="button" class="tab" role="tab" id="tab-peserta" data-tab="peserta" aria-controls="panel-peserta" aria-selected="false" tabindex="-1">Peserta</button>
+                        <button type="button" class="tab" role="tab" id="tab-nilai" data-tab="nilai" aria-controls="panel-nilai" aria-selected="false" tabindex="-1">Nilai</button>
+                    </nav>
+
+                    <!-- Tab Informasi -->
+                    <div class="tab-panel" id="panel-informasi" role="tabpanel" aria-labelledby="tab-informasi">
+                        <div class="grid-2">
+                            <section class="card">
+                                <header class="card-header">
+                                    <div>
+                                        <h2 class="card-title">Informasi Kelas</h2>
+                                    </div>
+                                </header>
+                                <div class="card-body">
+                                    <dl class="detail-list" id="detail-info"></dl>
+                                </div>
+                            </section>
+
+                            <section class="card">
+                                <header class="card-header">
+                                    <div>
+                                        <h2 class="card-title">Progress Pembelajaran</h2>
+                                        <p class="card-subtitle">Berdasarkan status &amp; komponen setiap pertemuan</p>
+                                    </div>
+                                </header>
+                                <div class="card-body">
+                                    <div class="progress-list" id="detail-progress"></div>
+                                    <p class="card-subtitle detail-ringkas" id="detail-materi-ringkas">–</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Tab Pembelajaran -->
+                    <div class="tab-panel" id="panel-pembelajaran" role="tabpanel" aria-labelledby="tab-pembelajaran" hidden>
+                        <section class="card">
+                            <header class="card-header">
+                                <div>
+                                    <h2 class="card-title">Struktur Pembelajaran</h2>
+                                    <p class="card-subtitle" id="detail-pertemuan-subtitle">–</p>
+                                </div>
+                                <a href="pertemuan.html" class="btn btn-primary btn-small" id="btn-kelola-pertemuan">Kelola Pertemuan</a>
+                            </header>
+                            <div class="card-body">
+                                <p class="detail-links">
+                                    Materi kelas ini:
+                                    <a class="text-primary" href="modul.html" id="link-modul-kelas">Modul</a>
+                                    <a class="text-primary" href="tugas.html" id="link-tugas-kelas">Tugas</a>
+                                    <a class="text-primary" href="kuis.html" id="link-kuis-kelas">Kuis</a>
+                                </p>
+                                <ol class="meeting-list" id="detail-pertemuan"></ol>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Tab Peserta -->
+                    <div class="tab-panel" id="panel-peserta" role="tabpanel" aria-labelledby="tab-peserta" hidden>
+                        <section class="card">
+                            <header class="card-header">
+                                <div>
+                                    <h2 class="card-title">Peserta Kelas</h2>
+                                    <p class="card-subtitle" id="detail-peserta-subtitle">–</p>
+                                </div>
+                                <a href="data-peserta.html" class="btn btn-secondary btn-small" id="btn-semua-peserta">Kelola di Data Peserta</a>
+                            </header>
+                            <div class="table-wrapper">
+                                <table class="table">
+                                    <caption class="visually-hidden">Peserta kelas</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-no">No.</th>
+                                            <th scope="col">Nama Peserta</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Asal Sekolah</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detail-peserta-body"></tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Tab Nilai -->
+                    <div class="tab-panel" id="panel-nilai" role="tabpanel" aria-labelledby="tab-nilai" hidden>
+                        <section class="card">
+                            <header class="card-header">
+                                <div>
+                                    <h2 class="card-title">Nilai Peserta</h2>
+                                    <p class="card-subtitle" id="detail-nilai-subtitle">–</p>
+                                </div>
+                                <a href="rekap-nilai.html" class="btn btn-secondary btn-small" id="btn-rekap-kelas">Rekap Nilai</a>
+                            </header>
+                            <div class="table-wrapper">
+                                <table class="table">
+                                    <caption class="visually-hidden">Nilai peserta kelas</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama Peserta</th>
+                                            <th scope="col" class="num">Tugas</th>
+                                            <th scope="col" class="num">Kuis</th>
+                                            <th scope="col" class="num">TO PTS</th>
+                                            <th scope="col" class="num">TO PAS</th>
+                                            <th scope="col" class="num">Nilai Akhir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detail-nilai-body"></tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan detail kelas.</p></noscript>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard Pengajar DelLearn — kelas yang diampu, pertemuan, dan aktivitas pembelajaran">
+    <title>Dashboard Pengajar — DelLearn</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="dashboard-pengajar">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <!-- Menu Pengajar diisi renderMenuRole() di assets/js/script.js -->
+            <nav class="sidebar-nav" aria-label="Menu utama"></nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="dashboard-pengajar.html">Portal Pengajar</a>
+                </nav>
+
+                <div class="header-right">
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">–</p>
+                            <p class="profile-role">Pengajar</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- Isi dirender initDashboardPengajarPage() dari data kelas, peserta, pertemuan, modul, tugas, kuis & TO -->
+            <main class="content">
+                <section class="welcome-card" aria-labelledby="pengajar-sapaan">
+                    <div>
+                        <p class="eyebrow">Portal Pengajar <span class="eyebrow-accent text-success" id="pengajar-mapel">–</span></p>
+                        <h1 class="page-title" id="pengajar-sapaan">Halo 👋</h1>
+                        <p class="page-description">Kelola pembelajaran dan pantau perkembangan peserta.</p>
+                    </div>
+                    <a href="pertemuan.html" class="btn btn-primary"><span class="icon i-calendar" aria-hidden="true"></span>Kelola Pertemuan</a>
+                </section>
+
+                <section class="stats-grid" aria-label="Ringkasan">
+                    <article class="stat-card">
+                        <div>
+                            <p class="stat-label">Kelas Diampu</p>
+                            <p class="stat-value" id="pg-stat-kelas">–</p>
+                            <p class="stat-info" id="pg-stat-kelas-info">–</p>
+                        </div>
+                        <span class="stat-icon"><span class="icon i-book" aria-hidden="true"></span></span>
+                    </article>
+                    <article class="stat-card">
+                        <div>
+                            <p class="stat-label">Total Peserta</p>
+                            <p class="stat-value" id="pg-stat-peserta">–</p>
+                            <p class="stat-info" id="pg-stat-peserta-info">–</p>
+                        </div>
+                        <span class="stat-icon"><span class="icon i-users" aria-hidden="true"></span></span>
+                    </article>
+                    <article class="stat-card">
+                        <div>
+                            <p class="stat-label">Modul</p>
+                            <p class="stat-value" id="pg-stat-modul">–</p>
+                            <p class="stat-info" id="pg-stat-modul-info">–</p>
+                        </div>
+                        <span class="stat-icon"><span class="icon i-file" aria-hidden="true"></span></span>
+                    </article>
+                    <article class="stat-card">
+                        <div>
+                            <p class="stat-label">Tugas / Kuis</p>
+                            <p class="stat-value" id="pg-stat-evaluasi">–</p>
+                            <p class="stat-info" id="pg-stat-evaluasi-info">–</p>
+                        </div>
+                        <span class="stat-icon"><span class="icon i-check-square" aria-hidden="true"></span></span>
+                    </article>
+                </section>
+
+                <div class="dashboard-grid">
+                    <div>
+                        <section class="card" id="kelas-diampu">
+                            <header class="card-header">
+                                <div>
+                                    <h2 class="card-title">Kelas yang Diampu</h2>
+                                    <p class="card-subtitle">Kelas dengan Anda sebagai pengajar (dari Data Kelas)</p>
+                                </div>
+                            </header>
+                            <div class="card-body">
+                                <div class="event-list" id="pg-kelas-list"></div>
+                            </div>
+                        </section>
+
+                        <section class="card">
+                            <header class="card-header">
+                                <div>
+                                    <h2 class="card-title">Pertemuan Mendatang</h2>
+                                    <p class="card-subtitle">Pertemuan yang belum selesai, tanggal terdekat lebih dulu</p>
+                                </div>
+                                <a href="pertemuan.html" class="link-arrow">Lihat Semua</a>
+                            </header>
+                            <div class="card-body">
+                                <ol class="meeting-list" id="pg-pertemuan-list"></ol>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div>
+                        <section class="card">
+                            <header class="card-header">
+                                <div>
+                                    <h2 class="card-title">Aktivitas Terbaru</h2>
+                                    <p class="card-subtitle">Perubahan terbaru di kelas Anda</p>
+                                </div>
+                            </header>
+                            <div class="card-body">
+                                <ul class="activity-list" id="pg-aktivitas-list"></ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan dashboard pengajar.</p></noscript>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

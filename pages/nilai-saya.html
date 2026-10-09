@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nilai Saya — nilai pribadi peserta DelLearn">
+    <title>Nilai Saya — DelLearn Peserta</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="nilai-saya">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <!-- Menu Peserta diisi renderMenuRole() di assets/js/script.js -->
+            <nav class="sidebar-nav" aria-label="Menu utama"></nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="dashboard-peserta.html">Portal Peserta</a>
+                </nav>
+
+                <div class="header-right">
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">–</p>
+                            <p class="profile-role">Peserta</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- Isi dirender initNilaiSayaPage(): hanya nilai milik peserta yang login (koleksi nilai) -->
+            <main class="content">
+                <div class="page-heading">
+                    <div>
+                        <h1 class="page-title">Nilai Saya</h1>
+                        <p class="page-description" id="peserta-subjudul">–</p>
+                    </div>
+                </div>
+
+                <p class="info-box" id="peserta-kosong" role="status" hidden></p>
+
+                <div id="peserta-konten">
+                    <section class="stats-grid" aria-label="Nilai per komponen">
+                        <article class="stat-card">
+                            <div>
+                                <p class="stat-label">Tugas</p>
+                                <p class="stat-value" id="ns-tugas">–</p>
+                                <p class="stat-info" id="ns-tugas-info">Bobot 20%</p>
+                            </div>
+                            <span class="stat-icon"><span class="icon i-check-square" aria-hidden="true"></span></span>
+                        </article>
+                        <article class="stat-card">
+                            <div>
+                                <p class="stat-label">Kuis</p>
+                                <p class="stat-value" id="ns-kuis">–</p>
+                                <p class="stat-info" id="ns-kuis-info">Bobot 20%</p>
+                            </div>
+                            <span class="stat-icon"><span class="icon i-help" aria-hidden="true"></span></span>
+                        </article>
+                        <article class="stat-card">
+                            <div>
+                                <p class="stat-label">TO PTS</p>
+                                <p class="stat-value" id="ns-pts">–</p>
+                                <p class="stat-info" id="ns-pts-info">Bobot 30%</p>
+                            </div>
+                            <span class="stat-icon"><span class="icon i-trophy" aria-hidden="true"></span></span>
+                        </article>
+                        <article class="stat-card">
+                            <div>
+                                <p class="stat-label">TO PAS</p>
+                                <p class="stat-value" id="ns-pas">–</p>
+                                <p class="stat-info" id="ns-pas-info">Bobot 30%</p>
+                            </div>
+                            <span class="stat-icon"><span class="icon i-calendar-check" aria-hidden="true"></span></span>
+                        </article>
+                    </section>
+
+                    <section class="card">
+                        <header class="card-header">
+                            <div>
+                                <h2 class="card-title">Nilai Akhir: <span class="text-primary" id="ns-akhir">–</span></h2>
+                                <p class="card-subtitle" id="ns-akhir-info">–</p>
+                            </div>
+                        </header>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <caption class="visually-hidden">Rincian perhitungan nilai akhir</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Komponen</th>
+                                        <th scope="col" class="num">Nilai</th>
+                                        <th scope="col" class="num">Bobot</th>
+                                        <th scope="col" class="num">Kontribusi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ns-body"></tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="card">
+                        <header class="card-header">
+                            <div>
+                                <h2 class="card-title">Riwayat Nilai</h2>
+                                <p class="card-subtitle">Kuis, Try Out, dan tugas yang sudah dinilai</p>
+                            </div>
+                        </header>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <caption class="visually-hidden">Riwayat nilai kuis, Try Out, dan tugas</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Jenis</th>
+                                        <th scope="col">Waktu</th>
+                                        <th scope="col" class="num">Nilai</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ns-riwayat-body"></tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <p class="info-box">Nilai Akhir = 20% Tugas + 20% Kuis + 30% TO PTS + 30% TO PAS. Komponen yang sudah memiliki hasil pengerjaan memakai hasil tersebut; komponen lain memakai nilai awal dari pengajar. TO adalah simulasi ujian sekolah, bukan penentu kelulusan.</p>
+                </div>
+                <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan nilai.</p></noscript>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

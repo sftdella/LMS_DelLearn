@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rekapitulasi akumulasi nilai peserta per kelas dan komponen pembelajaran">
+    <title>Rekap Nilai — DelLearn Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="rekap-nilai">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu utama">
+                <ul class="nav-list">
+                    <li>
+                        <a href="../index.html" class="nav-link">
+                            <span class="icon i-dashboard" aria-hidden="true"></span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-kelas.html" class="nav-link">
+                            <span class="icon i-book" aria-hidden="true"></span>
+                            Kelas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-peserta.html" class="nav-link">
+                            <span class="icon i-users" aria-hidden="true"></span>
+                            Peserta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-pengajar.html" class="nav-link">
+                            <span class="icon i-user-check" aria-hidden="true"></span>
+                            Pengajar
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Pembelajaran</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="pertemuan.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar" aria-hidden="true"></span>
+                            Pertemuan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=pretest" class="nav-link nav-sub">
+                            <span class="icon i-clipboard" aria-hidden="true"></span>
+                            Pretest
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modul.html" class="nav-link nav-sub">
+                            <span class="icon i-file" aria-hidden="true"></span>
+                            Modul
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=aktivitas" class="nav-link nav-sub">
+                            <span class="icon i-star" aria-hidden="true"></span>
+                            Aktivitas Interaktif
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=latihan" class="nav-link nav-sub">
+                            <span class="icon i-list" aria-hidden="true"></span>
+                            Latihan Soal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tugas.html" class="nav-link nav-sub">
+                            <span class="icon i-check-square" aria-hidden="true"></span>
+                            Tugas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kuis.html" class="nav-link nav-sub">
+                            <span class="icon i-help" aria-hidden="true"></span>
+                            Kuis
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Ruang Try Out</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="to-pts.html" class="nav-link nav-sub">
+                            <span class="icon i-trophy" aria-hidden="true"></span>
+                            TO PTS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="to-pas.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar-check" aria-hidden="true"></span>
+                            TO PAS
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Penilaian</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="rekap-nilai.html" class="nav-link nav-sub active" aria-current="page">
+                            <span class="icon i-bar-chart" aria-hidden="true"></span>
+                            Rekap Nilai
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="../index.html">Admin Portal</a>
+                </nav>
+
+                <div class="header-right">
+                    <!-- Status notifikasi (informasi saja, bukan tombol: belum ada fitur notifikasi) -->
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">Administrator</p>
+                            <p class="profile-role">Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- Laporan nilai dirender initRekapNilaiPage() di assets/js/script.js dari koleksi nilai (bukan CRUD) -->
+            <main class="content">
+                <div class="page-heading">
+                    <div>
+                        <h1 class="page-title"><span class="icon i-bar-chart icon-lg text-primary" aria-hidden="true"></span>Rekap Nilai</h1>
+                        <p class="page-description">Rekapitulasi akumulasi nilai peserta per kelas dan komponen pembelajaran</p>
+                        <p class="print-only rekap-print-info" id="rekap-print-info"></p>
+                    </div>
+                    <div class="heading-actions">
+                        <a href="../index.html" class="btn btn-secondary" id="btn-kembali-rekap"><span class="icon i-chevron-left" aria-hidden="true"></span><span id="btn-kembali-rekap-text">Kembali</span></a>
+                        <button type="button" class="btn btn-secondary" id="btn-ekspor-rekap"><span class="icon i-download" aria-hidden="true"></span>Ekspor CSV</button>
+                        <button type="button" class="btn btn-secondary" id="btn-bobot-rekap"><span class="icon i-tune" aria-hidden="true"></span>Bobot Komponen</button>
+                        <button type="button" class="btn btn-primary" id="btn-cetak-rekap"><span class="icon i-file" aria-hidden="true"></span>Cetak</button>
+                    </div>
+                </div>
+
+                <div class="alert alert-success" id="page-alert" role="status" hidden>
+                    <span class="icon i-check-circle" aria-hidden="true"></span>
+                    <span id="page-alert-text"></span>
+                </div>
+
+                <section class="stats-grid" aria-label="Ringkasan">
+                    <article class="stat-card stat-card-lg">
+                        <div>
+                            <p class="stat-label stat-label-caps">Rata-rata Nilai Akhir</p>
+                            <p class="stat-value" id="rekap-rata">–</p>
+                            <p class="stat-info" id="rekap-rata-info">–</p>
+                        </div>
+                        <span class="stat-icon"><span class="icon i-chart-box" aria-hidden="true"></span></span>
+                    </article>
+                    <article class="stat-card stat-card-lg">
+                        <div>
+                            <p class="stat-label stat-label-caps">Peserta Terdata</p>
+                            <p class="stat-value" id="rekap-jumlah">–</p>
+                            <p class="stat-info" id="rekap-jumlah-info">–</p>
+                        </div>
+                        <span class="stat-icon stat-icon-muted"><span class="icon i-users" aria-hidden="true"></span></span>
+                    </article>
+                    <article class="stat-card stat-card-lg">
+                        <div>
+                            <p class="stat-label stat-label-caps">Nilai Tertinggi</p>
+                            <p class="stat-value stat-value-primary" id="rekap-tertinggi">–</p>
+                            <p class="stat-info" id="rekap-tertinggi-info">–</p>
+                        </div>
+                        <span class="stat-icon stat-icon-success"><span class="icon i-star" aria-hidden="true"></span></span>
+                    </article>
+                    <article class="stat-card stat-card-lg">
+                        <div>
+                            <p class="stat-label stat-label-caps">Nilai Terendah</p>
+                            <p class="stat-value stat-value-muted" id="rekap-terendah">–</p>
+                            <p class="stat-info" id="rekap-terendah-info">–</p>
+                        </div>
+                        <span class="stat-icon stat-icon-muted"><span class="icon i-trending-down" aria-hidden="true"></span></span>
+                    </article>
+                </section>
+
+                <section class="card rekap-filter" aria-label="Filter rekap nilai">
+                    <div class="filter-bar">
+                        <label class="select-field field-outlined">
+                            <span class="icon i-book icon-sm" aria-hidden="true"></span>
+                            <span class="visually-hidden">Mata pelajaran</span>
+                            <select id="rekap-filter-mapel"></select>
+                        </label>
+                        <label class="select-field field-outlined">
+                            <span class="icon i-school icon-sm" aria-hidden="true"></span>
+                            <span class="visually-hidden">Kelas</span>
+                            <select id="rekap-filter-kelas"></select>
+                        </label>
+                        <label class="search-field field-outlined">
+                            <span class="icon i-search" aria-hidden="true"></span>
+                            <span class="visually-hidden">Pencarian peserta</span>
+                            <input type="search" id="rekap-search" placeholder="Cari peserta atau NIS...">
+                        </label>
+                        <p class="stat-info filter-bar-end"><span class="icon i-info icon-sm" aria-hidden="true"></span>Bobot: Tugas (20%), Kuis (20%), TO PTS (30%), TO PAS (30%)</p>
+                    </div>
+                </section>
+
+                <section class="card" aria-label="Rekap nilai peserta">
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <caption class="visually-hidden">Rekap nilai peserta</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-no">No.</th>
+                                    <th scope="col">Peserta</th>
+                                    <th scope="col" class="num">Tugas</th>
+                                    <th scope="col" class="num">Kuis</th>
+                                    <th scope="col" class="num">TO PTS</th>
+                                    <th scope="col" class="num">TO PAS</th>
+                                    <th scope="col" class="num">Nilai Akhir</th>
+                                    <th scope="col" class="text-center col-aksi">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rekap-table-body"></tbody>
+                            <tfoot id="rekap-table-foot"></tfoot>
+                        </table>
+                        <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan rekap nilai.</p></noscript>
+                    </div>
+                    <div class="table-footer">
+                        <p id="rekap-table-info">–</p>
+                        <nav class="pagination" id="rekap-pagination" aria-label="Paginasi"></nav>
+                    </div>
+                </section>
+
+                <aside class="info-box info-box-icon info-box-bordered" aria-label="Rumus nilai akhir">
+                    <span class="icon i-help" aria-hidden="true"></span>
+                    <div>
+                        <p class="info-box-title info-box-title-strong">Rumus Akumulasi Nilai Akhir</p>
+                        <p><code class="formula">Nilai Akhir = (Tugas × 20%) + (Kuis × 20%) + (TO PTS × 30%) + (TO PAS × 30%)</code>. Rekap ini adalah laporan bimbingan belajar dan tidak menentukan kelulusan.</p>
+                    </div>
+                </aside>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Modal detail (detail nilai peserta & bobot komponen) -->
+    <div class="modal-overlay" id="modal-detail" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-detail-title">
+            <div class="modal-header">
+                <span class="modal-icon modal-icon-info"><span class="icon i-eye" aria-hidden="true"></span></span>
+                <h2 class="modal-title" id="modal-detail-title">Detail</h2>
+                <button type="button" class="icon-btn icon-btn-ghost icon-btn-small" data-modal-close aria-label="Tutup"><span class="icon i-x icon-sm" aria-hidden="true"></span></button>
+            </div>
+            <dl class="detail-list" id="modal-detail-body"></dl>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-modal-close>Tutup</button>
+                <button type="button" class="btn btn-primary" id="modal-detail-edit" hidden>Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

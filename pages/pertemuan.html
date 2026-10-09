@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kelola struktur pembelajaran setiap pertemuan">
+    <title>Pertemuan — DelLearn Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="pertemuan">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu utama">
+                <ul class="nav-list">
+                    <li>
+                        <a href="../index.html" class="nav-link">
+                            <span class="icon i-dashboard" aria-hidden="true"></span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-kelas.html" class="nav-link">
+                            <span class="icon i-book" aria-hidden="true"></span>
+                            Kelas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-peserta.html" class="nav-link">
+                            <span class="icon i-users" aria-hidden="true"></span>
+                            Peserta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-pengajar.html" class="nav-link">
+                            <span class="icon i-user-check" aria-hidden="true"></span>
+                            Pengajar
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Pembelajaran</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="pertemuan.html" class="nav-link nav-sub active" aria-current="page">
+                            <span class="icon i-calendar" aria-hidden="true"></span>
+                            Pertemuan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=pretest" class="nav-link nav-sub">
+                            <span class="icon i-clipboard" aria-hidden="true"></span>
+                            Pretest
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modul.html" class="nav-link nav-sub">
+                            <span class="icon i-file" aria-hidden="true"></span>
+                            Modul
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=aktivitas" class="nav-link nav-sub">
+                            <span class="icon i-star" aria-hidden="true"></span>
+                            Aktivitas Interaktif
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=latihan" class="nav-link nav-sub">
+                            <span class="icon i-list" aria-hidden="true"></span>
+                            Latihan Soal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tugas.html" class="nav-link nav-sub">
+                            <span class="icon i-check-square" aria-hidden="true"></span>
+                            Tugas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kuis.html" class="nav-link nav-sub">
+                            <span class="icon i-help" aria-hidden="true"></span>
+                            Kuis
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Ruang Try Out</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="to-pts.html" class="nav-link nav-sub">
+                            <span class="icon i-trophy" aria-hidden="true"></span>
+                            TO PTS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="to-pas.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar-check" aria-hidden="true"></span>
+                            TO PAS
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Penilaian</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="rekap-nilai.html" class="nav-link nav-sub">
+                            <span class="icon i-bar-chart" aria-hidden="true"></span>
+                            Rekap Nilai
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="../index.html">Admin Portal</a>
+                </nav>
+
+                <div class="header-right">
+                    <!-- Status notifikasi (informasi saja, bukan tombol: belum ada fitur notifikasi) -->
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">Administrator</p>
+                            <p class="profile-role">Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- Daftar pertemuan dirender initPertemuanPage() di assets/js/script.js (mock data + localStorage) -->
+            <main class="content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../index.html">Dashboard</a></li>
+                        <li>Pembelajaran</li>
+                        <li aria-current="page">Pertemuan</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Pertemuan</h1>
+                        <p class="page-description">Kelola struktur pembelajaran setiap pertemuan</p>
+                    </div>
+                    <div class="heading-actions">
+                        <a href="detail-kelas.html" class="btn btn-secondary" id="btn-kembali-pertemuan"><span class="icon i-chevron-left" aria-hidden="true"></span>Kembali ke Detail Kelas</a>
+                        <button type="button" class="btn btn-primary" id="btn-tambah-pertemuan"><span class="icon i-plus" aria-hidden="true"></span>Tambah Pertemuan</button>
+                    </div>
+                </div>
+
+                <div class="alert alert-success" id="page-alert" role="status" hidden>
+                    <span class="icon i-check-circle" aria-hidden="true"></span>
+                    <span id="page-alert-text"></span>
+                </div>
+
+                <aside class="info-box" aria-label="Struktur pertemuan">
+                    <p class="info-box-title">Setiap pertemuan terdiri dari:</p>
+                    <ol class="step-list">
+                        <li>Pretest</li>
+                        <li>Modul Pembelajaran</li>
+                        <li>Aktivitas Interaktif</li>
+                        <li>Latihan Soal</li>
+                        <li>Kuis</li>
+                    </ol>
+                </aside>
+
+                <!-- Form Tambah / Edit Pertemuan (ditampilkan saat tombol Tambah atau Edit ditekan) -->
+                <section class="card" id="pertemuan-form-card" aria-labelledby="pertemuan-form-title" hidden>
+                    <header class="card-header">
+                        <div>
+                            <h2 class="card-title" id="pertemuan-form-title">Tambah Pertemuan</h2>
+                            <p class="card-subtitle">Kolom bertanda <span class="required">*</span> wajib diisi. TO PTS &amp; TO PAS dikelola di menu Ruang Try Out.</p>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <form id="form-pertemuan" novalidate>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="pertemuan-kelasId">Kelas <span class="required">*</span></label>
+                                    <select id="pertemuan-kelasId" name="kelasId" class="form-control" aria-describedby="kelasId-error" required></select>
+                                    <p class="form-error" id="kelasId-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="pertemuan-nomor">Pertemuan Ke- <span class="required">*</span></label>
+                                    <input type="number" id="pertemuan-nomor" name="nomor" class="form-control" min="1" max="30" step="1" inputmode="numeric" aria-describedby="nomor-error" required>
+                                    <p class="form-error" id="nomor-error"></p>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label class="form-label" for="pertemuan-judul">Topik Pertemuan <span class="required">*</span></label>
+                                    <input type="text" id="pertemuan-judul" name="judul" class="form-control" maxlength="80" placeholder="Contoh: Persamaan Linear Satu Variabel" aria-describedby="judul-error" required>
+                                    <p class="form-error" id="judul-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="pertemuan-tanggal">Tanggal <span class="required">*</span></label>
+                                    <input type="date" id="pertemuan-tanggal" name="tanggal" class="form-control" aria-describedby="tanggal-error" required>
+                                    <p class="form-error" id="tanggal-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="pertemuan-modeAkses">Mode Akses <span class="required">*</span></label>
+                                    <select id="pertemuan-modeAkses" name="modeAkses" class="form-control" aria-describedby="pertemuan-jadwal-info modeAkses-error" required></select>
+                                    <p class="form-error" id="modeAkses-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="pertemuan-status">Status <span class="required">*</span></label>
+                                    <select id="pertemuan-status" name="status" class="form-control" aria-describedby="pertemuan-jadwal-info status-error" required></select>
+                                    <p class="form-error" id="status-error"></p>
+                                </div>
+
+                                <p class="form-hint full jadwal-info" id="pertemuan-jadwal-info" role="status">Tanggal di atas adalah tanggal mulai. Tanggal selesai = 1 hari sebelum pertemuan berikutnya (maks. 1 minggu).</p>
+
+                                <fieldset class="form-group full check-fieldset" name="komponen" aria-describedby="komponen-hint komponen-error">
+                                    <legend class="form-label">Komponen yang sudah siap</legend>
+                                    <div class="check-group">
+                                        <label class="check-item"><input type="checkbox" name="komponen-item" value="pretest">Pretest</label>
+                                        <label class="check-item"><input type="checkbox" name="komponen-item" value="modul">Modul Pembelajaran</label>
+                                        <label class="check-item"><input type="checkbox" name="komponen-item" value="aktivitas">Aktivitas Interaktif</label>
+                                        <label class="check-item"><input type="checkbox" name="komponen-item" value="latihan">Latihan Soal</label>
+                                        <label class="check-item"><input type="checkbox" name="komponen-item" value="kuis">Kuis</label>
+                                    </div>
+                                    <p class="form-hint" id="komponen-hint">Pertemuan berstatus Selesai harus memiliki kelima komponen.</p>
+                                    <p class="form-error" id="komponen-error"></p>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="btn-batal-pertemuan">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <header class="card-header">
+                        <div>
+                            <h2 class="card-title">Struktur Pembelajaran</h2>
+                            <p class="card-subtitle">Pertemuan 1–6 → TO PTS → Pertemuan 7–12 → TO PAS</p>
+                            <p class="card-subtitle" id="pertemuan-ringkasan">–</p>
+                        </div>
+                        <label class="toolbar">
+                            <span class="visually-hidden">Pilih kelas</span>
+                            <select class="form-control" id="pertemuan-filter-kelas"></select>
+                        </label>
+                    </header>
+                    <div class="card-body">
+                        <ol class="meeting-list" id="pertemuan-list"></ol>
+                        <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan data pertemuan.</p></noscript>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Modal konfirmasi hapus (Material dialog) -->
+    <div class="modal-overlay" id="modal-hapus" hidden>
+        <div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="modal-hapus-title" aria-describedby="modal-hapus-desc">
+            <div class="modal-header">
+                <span class="modal-icon"><span class="icon i-trash" aria-hidden="true"></span></span>
+                <h2 class="modal-title" id="modal-hapus-title">Hapus Data?</h2>
+                <button type="button" class="icon-btn icon-btn-ghost icon-btn-small" data-modal-close aria-label="Tutup"><span class="icon i-x icon-sm" aria-hidden="true"></span></button>
+            </div>
+            <div id="modal-hapus-desc">
+                <p class="modal-text">Apakah Anda yakin ingin menghapus <span id="modal-hapus-jenis">data</span> "<strong id="modal-hapus-nama"></strong>"?</p>
+                <p class="modal-note" id="modal-hapus-dampak" hidden></p>
+                <p class="modal-note">Data yang dihapus tidak dapat dikembalikan.</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-modal-close>Batal</button>
+                <button type="button" class="btn btn-danger" id="modal-hapus-confirm">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal detail data -->
+    <div class="modal-overlay" id="modal-detail" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-detail-title">
+            <div class="modal-header">
+                <span class="modal-icon modal-icon-info"><span class="icon i-eye" aria-hidden="true"></span></span>
+                <h2 class="modal-title" id="modal-detail-title">Detail</h2>
+                <button type="button" class="icon-btn icon-btn-ghost icon-btn-small" data-modal-close aria-label="Tutup"><span class="icon i-x icon-sm" aria-hidden="true"></span></button>
+            </div>
+            <dl class="detail-list" id="modal-detail-body"></dl>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-modal-close>Tutup</button>
+                <button type="button" class="btn btn-primary" id="modal-detail-edit">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

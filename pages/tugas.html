@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kelola tugas peserta">
+    <title>Tugas — DelLearn Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="tugas">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu utama">
+                <ul class="nav-list">
+                    <li>
+                        <a href="../index.html" class="nav-link">
+                            <span class="icon i-dashboard" aria-hidden="true"></span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-kelas.html" class="nav-link">
+                            <span class="icon i-book" aria-hidden="true"></span>
+                            Kelas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-peserta.html" class="nav-link">
+                            <span class="icon i-users" aria-hidden="true"></span>
+                            Peserta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data-pengajar.html" class="nav-link">
+                            <span class="icon i-user-check" aria-hidden="true"></span>
+                            Pengajar
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Pembelajaran</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="pertemuan.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar" aria-hidden="true"></span>
+                            Pertemuan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=pretest" class="nav-link nav-sub">
+                            <span class="icon i-clipboard" aria-hidden="true"></span>
+                            Pretest
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modul.html" class="nav-link nav-sub">
+                            <span class="icon i-file" aria-hidden="true"></span>
+                            Modul
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=aktivitas" class="nav-link nav-sub">
+                            <span class="icon i-star" aria-hidden="true"></span>
+                            Aktivitas Interaktif
+                        </a>
+                    </li>
+                    <li>
+                        <a href="evaluasi.html?jenis=latihan" class="nav-link nav-sub">
+                            <span class="icon i-list" aria-hidden="true"></span>
+                            Latihan Soal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tugas.html" class="nav-link nav-sub active" aria-current="page">
+                            <span class="icon i-check-square" aria-hidden="true"></span>
+                            Tugas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kuis.html" class="nav-link nav-sub">
+                            <span class="icon i-help" aria-hidden="true"></span>
+                            Kuis
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Ruang Try Out</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="to-pts.html" class="nav-link nav-sub">
+                            <span class="icon i-trophy" aria-hidden="true"></span>
+                            TO PTS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="to-pas.html" class="nav-link nav-sub">
+                            <span class="icon i-calendar-check" aria-hidden="true"></span>
+                            TO PAS
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="nav-group-title">Penilaian</p>
+                <ul class="nav-list">
+                    <li>
+                        <a href="rekap-nilai.html" class="nav-link nav-sub">
+                            <span class="icon i-bar-chart" aria-hidden="true"></span>
+                            Rekap Nilai
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="../index.html">Admin Portal</a>
+                </nav>
+
+                <div class="header-right">
+                    <!-- Status notifikasi (informasi saja, bukan tombol: belum ada fitur notifikasi) -->
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">Administrator</p>
+                            <p class="profile-role">Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- Daftar tugas dirender initTugasPage() di assets/js/script.js (mock data + localStorage) -->
+            <main class="content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../index.html">Dashboard</a></li>
+                        <li>Pembelajaran</li>
+                        <li aria-current="page">Tugas</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Tugas</h1>
+                        <p class="page-description">Kelola tugas peserta</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btn-tambah-tugas"><span class="icon i-plus" aria-hidden="true"></span>Tambah Tugas</button>
+                </div>
+
+                <div class="alert alert-success" id="page-alert" role="status" hidden>
+                    <span class="icon i-check-circle" aria-hidden="true"></span>
+                    <span id="page-alert-text"></span>
+                </div>
+
+                <!-- Form Tambah / Edit Tugas (ditampilkan saat tombol Tambah atau Edit ditekan) -->
+                <section class="card" id="tugas-form-card" aria-labelledby="tugas-form-title" hidden>
+                    <header class="card-header">
+                        <div>
+                            <h2 class="card-title" id="tugas-form-title">Tambah Tugas</h2>
+                            <p class="card-subtitle">Kolom bertanda <span class="required">*</span> wajib diisi</p>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <form id="form-tugas" novalidate>
+                            <div class="form-grid">
+                                <div class="form-group full">
+                                    <label class="form-label" for="tugas-judul">Judul Tugas <span class="required">*</span></label>
+                                    <input type="text" id="tugas-judul" name="judul" class="form-control" maxlength="100" placeholder="Contoh: Latihan Persamaan Linear" aria-describedby="judul-error" required>
+                                    <p class="form-error" id="judul-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="tugas-kelasId">Kelas / Mata Pelajaran <span class="required">*</span></label>
+                                    <select id="tugas-kelasId" name="kelasId" class="form-control" aria-describedby="kelasId-error" required></select>
+                                    <p class="form-error" id="kelasId-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="tugas-pertemuanId">Pertemuan <span class="required">*</span></label>
+                                    <select id="tugas-pertemuanId" name="pertemuanId" class="form-control" aria-describedby="pertemuanId-error" required></select>
+                                    <p class="form-error" id="pertemuanId-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="tugas-deadline">Deadline <span class="required">*</span></label>
+                                    <input type="datetime-local" id="tugas-deadline" name="deadline" class="form-control" aria-describedby="deadline-hint deadline-error" required>
+                                    <p class="form-hint" id="deadline-hint" aria-live="polite">Pilih pertemuan terlebih dahulu. Deadline terisi otomatis 6 hari setelah pertemuan (bisa diubah).</p>
+                                    <p class="form-error" id="deadline-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="tugas-status">Status <span class="required">*</span></label>
+                                    <select id="tugas-status" name="status" class="form-control" aria-describedby="status-error" required></select>
+                                    <p class="form-error" id="status-error"></p>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label class="form-label" for="tugas-deskripsi">Deskripsi / Petunjuk <span class="required">*</span></label>
+                                    <textarea id="tugas-deskripsi" name="deskripsi" class="form-control" maxlength="500" placeholder="Contoh: Kerjakan soal berikut dengan langkah yang lengkap, lalu kumpulkan sebelum deadline." aria-describedby="deskripsi-error" required></textarea>
+                                    <p class="form-error" id="deskripsi-error"></p>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label class="form-label" for="tugas-soal">Soal (teks)</label>
+                                    <textarea id="tugas-soal" name="soal" class="form-control" rows="4" maxlength="3000" placeholder="Contoh: Jelaskan langkah-langkah menyelesaikan persamaan 2x + 5 = 15." aria-describedby="soal-hint soal-error"></textarea>
+                                    <p class="form-hint" id="soal-hint">Isi soal teks dan/atau unggah dokumentasi soal di bawah (minimal salah satu).</p>
+                                    <p class="form-error" id="soal-error"></p>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label class="form-label" for="tugas-fileSoal">Dokumentasi Soal <span class="form-hint-inline">(opsional: PDF, JPG, JPEG, PNG · maks. 10 MB)</span></label>
+                                    <div class="upload-area">
+                                        <input type="file" id="tugas-fileSoal" name="fileSoal" class="form-control" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" aria-describedby="tugas-filesoal-info fileSoal-error">
+                                        <div class="file-info-baris">
+                                            <p class="form-hint" id="tugas-filesoal-info">Mis. lembar soal dari buku/modul (foto atau PDF).</p>
+                                            <button type="button" class="btn btn-secondary btn-small" id="btn-hapus-filesoal" hidden>Hapus File</button>
+                                        </div>
+                                    </div>
+                                    <p class="form-error" id="fileSoal-error"></p>
+                                    <div class="dok-preview" id="tugas-filesoal-preview" hidden></div>
+                                </div>
+
+                                <fieldset class="form-group full check-fieldset" id="tugas-metode-group" aria-describedby="metode-hint metode-error">
+                                    <legend class="form-label">Metode Pengumpulan Jawaban <span class="required">*</span></legend>
+                                    <div class="check-group">
+                                        <label class="check-item"><input type="radio" name="metode" value="ketik">✍️ Ketik Langsung</label>
+                                        <label class="check-item"><input type="radio" name="metode" value="upload">📎 Upload File</label>
+                                        <label class="check-item"><input type="radio" name="metode" value="keduanya">🔀 Keduanya</label>
+                                    </div>
+                                    <p class="form-hint" id="metode-hint">Keduanya = peserta memilih sendiri: mengetik jawaban atau mengunggah file (PDF/JPG/PNG, mis. foto tulisan tangan atau Word yang diekspor ke PDF).</p>
+                                    <p class="form-error" id="metode-error"></p>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="btn-batal-tugas">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <header class="card-header">
+                        <div>
+                            <h2 class="card-title">Daftar Tugas</h2>
+                            <p class="card-subtitle" id="tugas-ringkasan">–</p>
+                        </div>
+                    </header>
+                    <div class="filter-bar">
+                        <label class="search-field">
+                            <span class="icon i-search" aria-hidden="true"></span>
+                            <span class="visually-hidden">Pencarian</span>
+                            <input type="search" id="tugas-search" placeholder="Cari judul, deskripsi, atau topik pertemuan...">
+                        </label>
+                        <label class="select-field">
+                            <span class="visually-hidden">Kelas</span>
+                            <select id="tugas-filter-kelas">
+                                <option value="">Semua Kelas</option>
+                            </select>
+                        </label>
+                        <label class="select-field">
+                            <span class="visually-hidden">Status</span>
+                            <select id="tugas-filter-status">
+                                <option value="">Semua Status</option>
+                                <option>Draft</option>
+                                <option>Aktif</option>
+                                <option>Ditutup</option>
+                            </select>
+                        </label>
+                        <button type="button" class="icon-btn" id="btn-reset-filter-tugas" aria-label="Reset pencarian dan filter" title="Reset pencarian dan filter"><span class="icon i-refresh icon-sm" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <caption class="visually-hidden">Daftar tugas</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-no">No</th>
+                                    <th scope="col">Judul Tugas</th>
+                                    <th scope="col">Kelas</th>
+                                    <th scope="col">Pertemuan</th>
+                                    <th scope="col">Deadline</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tugas-table-body"></tbody>
+                        </table>
+                        <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan data tugas.</p></noscript>
+                    </div>
+                    <div class="table-footer">
+                        <p id="tugas-table-info">–</p>
+                        <nav class="pagination" id="tugas-pagination" aria-label="Paginasi"></nav>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Modal konfirmasi hapus (Material dialog) -->
+    <div class="modal-overlay" id="modal-hapus" hidden>
+        <div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="modal-hapus-title" aria-describedby="modal-hapus-desc">
+            <div class="modal-header">
+                <span class="modal-icon"><span class="icon i-trash" aria-hidden="true"></span></span>
+                <h2 class="modal-title" id="modal-hapus-title">Hapus Data?</h2>
+                <button type="button" class="icon-btn icon-btn-ghost icon-btn-small" data-modal-close aria-label="Tutup"><span class="icon i-x icon-sm" aria-hidden="true"></span></button>
+            </div>
+            <div id="modal-hapus-desc">
+                <p class="modal-text">Apakah Anda yakin ingin menghapus <span id="modal-hapus-jenis">data</span> "<strong id="modal-hapus-nama"></strong>"?</p>
+                <p class="modal-note" id="modal-hapus-dampak" hidden></p>
+                <p class="modal-note">Data yang dihapus tidak dapat dikembalikan.</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-modal-close>Batal</button>
+                <button type="button" class="btn btn-danger" id="modal-hapus-confirm">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal detail data -->
+    <div class="modal-overlay" id="modal-detail" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-detail-title">
+            <div class="modal-header">
+                <span class="modal-icon modal-icon-info"><span class="icon i-eye" aria-hidden="true"></span></span>
+                <h2 class="modal-title" id="modal-detail-title">Detail</h2>
+                <button type="button" class="icon-btn icon-btn-ghost icon-btn-small" data-modal-close aria-label="Tutup"><span class="icon i-x icon-sm" aria-hidden="true"></span></button>
+            </div>
+            <dl class="detail-list" id="modal-detail-body"></dl>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-modal-close>Tutup</button>
+                <button type="button" class="btn btn-primary" id="modal-detail-edit">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF.js: pratinjau dokumentasi soal PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

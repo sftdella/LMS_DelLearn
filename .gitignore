@@ -1,0 +1,5 @@
+# Pengaturan Claude Code lokal (berisi path folder komputer, bukan bagian aplikasi)
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store

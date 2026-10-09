@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pertemuan kelas peserta DelLearn: Pretest, Modul, Aktivitas Interaktif, Latihan Soal, Kuis, dan Tugas">
+    <title>Pertemuan — DelLearn Peserta</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="pertemuan-saya">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <!-- Menu Peserta diisi renderMenuRole() di assets/js/script.js -->
+            <nav class="sidebar-nav" aria-label="Menu utama"></nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="dashboard-peserta.html">Portal Peserta</a>
+                </nav>
+
+                <div class="header-right">
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">–</p>
+                            <p class="profile-role">Peserta</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- pertemuan-saya.html?id=N — isi dirender initPertemuanSayaPage() -->
+            <main class="content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="dashboard-peserta.html">Dashboard</a></li>
+                        <li><a href="kelas-saya.html">Kelas Saya</a></li>
+                        <li aria-current="page">Pertemuan</li>
+                    </ol>
+                </nav>
+
+                <p class="info-box" id="peserta-kosong" role="status" hidden></p>
+
+                <div id="peserta-konten">
+                    <section class="card" id="ps-pertemuan-tidak-ada" hidden>
+                        <div class="card-body">
+                            <div class="alert alert-error" role="alert">
+                                <span class="icon i-info" aria-hidden="true"></span>
+                                <span><strong>Pertemuan tidak ditemukan.</strong> Pilih pertemuan dari halaman Kelas Saya.</span>
+                            </div>
+                            <a href="kelas-saya.html" class="btn btn-primary"><span class="icon i-chevron-left" aria-hidden="true"></span>Kembali ke Kelas Saya</a>
+                        </div>
+                    </section>
+
+                    <div id="ps-pertemuan-isi">
+                        <section class="detail-header" aria-labelledby="pt-judul">
+                            <div>
+                                <p class="eyebrow">Pertemuan</p>
+                                <h1 id="pt-judul">–</h1>
+                                <p class="detail-meta" id="pt-meta"></p>
+                                <p class="info-box info-jadwal" id="pt-jadwal" role="note" hidden></p>
+                            </div>
+                        </section>
+
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="progress-head">
+                                    <span>Progress pertemuan</span>
+                                    <span class="progress-value" id="pt-progress-text">–</span>
+                                </div>
+                                <progress class="progress" id="pt-progress" value="0" max="100">0%</progress>
+                                <!-- 5 langkah belajar: Pretest → Modul → Aktivitas → Latihan → Kuis -->
+                                <ol class="langkah-list" id="pt-langkah" aria-label="Langkah belajar pertemuan ini"></ol>
+                                <p class="langkah-selesai" id="pt-langkah-info" role="status"></p>
+                            </div>
+                        </section>
+
+                        <div id="pt-konten"></div>
+
+                        <nav class="pertemuan-nav" id="pt-nav" aria-label="Pertemuan sebelumnya dan berikutnya"></nav>
+                    </div>
+                </div>
+                <noscript><p class="table-empty">Aktifkan JavaScript untuk menampilkan pertemuan.</p></noscript>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Membaca modul pembelajaran DelLearn">
+    <title>Modul — DelLearn Peserta</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="baca-modul">
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-logo"><span class="icon i-school" aria-hidden="true"></span></span>
+                <p class="brand-title">DelLearn</p>
+                <p class="brand-subtitle">LMS Bimbel SMP</p>
+            </div>
+
+            <!-- Menu Peserta diisi renderMenuRole() di assets/js/script.js -->
+            <nav class="sidebar-nav" aria-label="Menu utama"></nav>
+
+            <div class="sidebar-footer">
+                <p class="semester-pill"><span class="status-dot" aria-hidden="true"></span>Semester Ganjil 2026/2027</p>
+            </div>
+        </aside>
+        <div class="sidebar-backdrop" hidden></div>
+
+        <div class="main">
+
+            <!-- ================= HEADER ================= -->
+            <header class="header">
+                <button type="button" class="icon-btn icon-btn-ghost menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="icon i-menu" aria-hidden="true"></span>
+                </button>
+                <nav class="header-breadcrumb" aria-label="Lokasi portal">
+                    <span class="crumb-root">Bimbingan Belajar SMP</span>
+                    <span class="icon i-chevron-right icon-sm" aria-hidden="true"></span>
+                    <a href="dashboard-peserta.html">Portal Peserta</a>
+                </nav>
+
+                <div class="header-right">
+                    <span class="icon-btn icon-btn-ghost notif notif-status" role="img" aria-label="Belum ada notifikasi baru" title="Belum ada notifikasi baru">
+                        <span class="icon i-bell" aria-hidden="true"></span>
+                    </span>
+                    <span class="header-divider" aria-hidden="true"></span>
+                    <div class="profile">
+                        <span class="avatar"><span class="icon i-user" aria-hidden="true"></span></span>
+                        <div>
+                            <p class="profile-name">–</p>
+                            <p class="profile-role">Peserta</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= CONTENT ================= -->
+            <!-- baca-modul.html?id=N — isi dirender initBacaModulPage(); membuka modul = "Sedang dipelajari" -->
+            <main class="content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="dashboard-peserta.html">Dashboard</a></li>
+                        <li><a href="modul-saya.html">Modul</a></li>
+                        <li aria-current="page">Baca Modul</li>
+                    </ol>
+                </nav>
+
+                <div class="alert alert-success" id="page-alert" role="status" hidden>
+                    <span class="icon i-check-circle" aria-hidden="true"></span>
+                    <span id="page-alert-text"></span>
+                </div>
+
+                <p class="info-box" id="peserta-kosong" role="status" hidden></p>
+
+                <div id="peserta-konten">
+                    <section class="card" id="bm-tidak-ada" hidden>
+                        <div class="card-body">
+                            <div class="alert alert-error" role="alert">
+                                <span class="icon i-info" aria-hidden="true"></span>
+                                <span><strong>Modul tidak ditemukan.</strong> Modul belum diterbitkan, sudah dihapus, atau bukan milik kelas Anda.</span>
+                            </div>
+                            <a href="modul-saya.html" class="btn btn-primary"><span class="icon i-chevron-left" aria-hidden="true"></span>Kembali ke Modul</a>
+                        </div>
+                    </section>
+
+                    <div id="bm-isi-modul">
+                        <section class="detail-header" aria-labelledby="bm-judul">
+                            <div>
+                                <p class="eyebrow">Modul Pembelajaran</p>
+                                <h1 id="bm-judul">–</h1>
+                                <p class="detail-meta" id="bm-meta"></p>
+                            </div>
+                            <div class="actions actions-wrap">
+                                <a href="modul-saya.html" class="btn btn-secondary" id="bm-kembali"><span class="icon i-chevron-left" aria-hidden="true"></span>Kembali</a>
+                            </div>
+                        </section>
+
+                        <div class="modul-layout">
+                            <section class="card" aria-label="Isi materi">
+                                <div class="card-body">
+                                    <p class="card-subtitle" id="bm-deskripsi">–</p>
+                                    <div class="materi" id="bm-isi"></div>
+                                </div>
+                            </section>
+
+                            <aside>
+                                <section class="card">
+                                    <div class="card-body">
+                                        <h2 class="card-title">Status Belajar</h2>
+                                        <p class="card-subtitle" id="bm-status-info">–</p>
+                                        <button type="button" class="btn btn-primary modul-tandai" id="btn-tandai-modul">Tandai Sudah Dipelajari</button>
+                                    </div>
+                                </section>
+                                <section class="card">
+                                    <div class="card-body">
+                                        <h2 class="card-title">Modul Lain di Pertemuan Ini</h2>
+                                        <ul class="bullet-list" id="bm-lain"></ul>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <noscript><p class="table-empty">Aktifkan JavaScript untuk membaca modul.</p></noscript>
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <p>© 2026 DelLearn · LMS Bimbingan Belajar SMP</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- PDF.js: merender PDF modul langsung di halaman (penampil bawaan browser sering blank untuk PDF yang disimpan di browser) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
